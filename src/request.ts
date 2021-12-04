@@ -36,6 +36,12 @@ router.post("/", (req: Request, res: Response): Response => {
         });
     }
     if (ip) {
+        if ((ip as string).includes(":")) {
+            return res.status(400).send({
+                success: false,
+                message: "v6 is not supported"
+            });
+        }
         let index = (global as any).blockQueue.findIndex((x: string) => x == ip);
         if (index >= 0) {
             return res.status(400).send({
@@ -67,6 +73,12 @@ router.delete("/", (req: Request, res: Response): Response => {
         });
     }
     if (ip) {
+        if ((ip as string).includes(":")) {
+            return res.status(400).send({
+                success: false,
+                message: "v6 is not supported"
+            });
+        }
         let index = (global as any).unBlockQueue.findIndex((x: string) => x == ip);
         if (index >= 0) {
             return res.status(200).send({
