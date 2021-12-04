@@ -56,6 +56,7 @@ try {
             let bQueue = (global as any).blockQueue.slice();
             if (bQueue.length > 0) {
                 for (const ip of bQueue) {
+                    if (ip.includes(':')) continue;
                     toAdd.push({
                         ip: ip,
                         comment: 'blocked by burstwall at ' + new Date().getTime()
@@ -114,6 +115,7 @@ try {
             //Delete from unblock queue
             if (ubQueue.length > 0) {
                 for (const ip of ubQueue) {
+                    if (ip.includes(':')) continue;
                     const id = getIDByIP(ip);
                     if (id) {
                         if (toRemove.indexOf(id) < 0) {
