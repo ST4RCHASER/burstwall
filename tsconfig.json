@@ -1,0 +1,33 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
+    ],
+    "outDir": "./build",
+    "sourceMap": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "strict": true,
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+  },
+  "include": [
+    "src/**/*.ts",
+    "*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
