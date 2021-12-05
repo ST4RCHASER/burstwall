@@ -16,7 +16,7 @@ router.get("/", (req: Request, res: Response): Response => {
             blockQueue: (global as any).blockQueue.length,
             unBlockQueue: (global as any).unBlockQueue.length,
             errorsCount: (global as any).errorLists.length,
-            totalSubmit: (global as any).totalSubmit,
+            // totalSubmit: (global as any).totalSubmit,
         },
         list: {
             loaded: (global as any).allblockList,

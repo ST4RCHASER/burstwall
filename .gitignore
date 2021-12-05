@@ -79,3 +79,5 @@ typings/
 .env.development
 .env.test
 .env.production
+
+build/
