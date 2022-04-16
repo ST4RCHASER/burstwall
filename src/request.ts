@@ -27,6 +27,21 @@ router.get("/", (req: Request, res: Response): Response => {
     });
 }
 );
+router.get('/list/json', (req: Request, res: Response): Response => {
+    let list = JSON.stringify((global as any).allblockList).slice();
+    for(const item of (global as any).allblockList) {
+        delete item.id;
+    }
+    return res.status(200).send(list);
+})
+router.get('/list/csv', (req: Request, res: Response): Response => {
+    let list = (global as any).allblockList;
+    let csv = 'ip,comment,created_on,modified_on\n';
+    for(const item of list) {
+        csv += `${item.ip},${item.comment || ''},${item.created_on},${item.modified_on}\n`;
+    }
+    return res.status(200).send(csv);
+})
 router.post("/", (req: Request, res: Response): Response => {
     let ip = req.query.ip;
     if (req.query.key != process.env.MODIFY_KEY) {
